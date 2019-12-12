@@ -59,8 +59,8 @@ const drawRectangle = function() {
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  var width = 0;
   var height = 0;
+  var width = 0;
   var x = 0;
   var y = 0;
   do {
@@ -68,7 +68,10 @@ const drawRectangle = function() {
     var height = prompt("Height: ")
     var x = prompt("X: ")
     var y = prompt("Y: ")
-    if (width == null || height == null || x == null || y == null) {
+    if (width == null ||
+      height == null ||
+      x == null ||
+      y == null) {
       break;
     }
     if (width > 1024 || width < 1) {
@@ -79,12 +82,28 @@ const drawRectangle = function() {
       alert("Your x-coordinate must be between 1 and 1024.")
     } else if (y < 1 || y > 512) {
       alert("Your y-coordinate must be between 1 and 512.")
-    } else if (isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y)) {
+    } else if (isNaN(width) ||
+      isNaN(height) ||
+      isNaN(x) ||
+      isNaN(y)) {
       alert("One of your values is not a number.")
     } else if (Number(width) + Number(x) > 1024 || Number(height) + Number(y) > 512) {
       alert("Your rectangle won't fit on the canvas.")
     }
-  } while (width > 1024 || width < 1 || height > 512 || height < 1 || x < 1 || x > 1024 || y < 1 || y > 512 || isNaN(width) || isNaN(height) || isNaN(x) || isNaN(y) || Number(width) + Number(x) > 1024 || Number(height) + Number(y) > 512)
+  } while (width > 1024 ||
+    width < 1 ||
+    height > 512 ||
+    height < 1 ||
+    x < 1 ||
+    x > 1024 ||
+    y < 1 ||
+    y > 512 ||
+    isNaN(width) ||
+    isNaN(height) ||
+    isNaN(x) ||
+    isNaN(y) ||
+    Number(width) + Number(x) > 1024 ||
+    Number(height) + Number(y) > 512)
 
   if (!(width == null) && !(height == null) && !(x == null) && !(y == null)) {
     ctx.beginPath();
@@ -111,10 +130,6 @@ const drawColoredRectangle = function() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
   switch (color) {
-    case "black":
-      ctx.fillStyle = "black";
-      ctx.fillRect(10, 10, 100, 50);
-      break;
     case "red":
       ctx.fillStyle = "red";
       ctx.fillRect(10, 10, 100, 50);
@@ -127,16 +142,20 @@ const drawColoredRectangle = function() {
       ctx.fillStyle = "blue";
       ctx.fillRect(10, 10, 100, 50);
       break;
+    case "black":
+      ctx.fillStyle = "black";
+      ctx.fillRect(10, 10, 100, 50);
+      break;
     case "green":
       ctx.fillStyle = "green";
       ctx.fillRect(10, 10, 100, 50);
       break;
-    case "orange":
-      ctx.fillStyle = "orange";
-      ctx.fillRect(10, 10, 100, 50);
-      break;
     case "purple":
       ctx.fillStyle = "purple";
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case "orange":
+      ctx.fillStyle = "orange";
       ctx.fillRect(10, 10, 100, 50);
       break;
     case null:
@@ -146,7 +165,6 @@ const drawColoredRectangle = function() {
       alert(color + " is not a supported color.");
       break;
   }
-
 
 
 };
@@ -175,7 +193,11 @@ const drawTriangle = function() {
     side1 = Number(side1)
     side2 = Number(side2)
     side3 = Number(side3)
-    if (base * base + height * height != hypotenuse * hypotenuse || base == 0 || height == 0 || hypotenuse == 0 || side1 + side2 + side3 - hypotenuse - height != base) {
+    if (base * base + height * height != hypotenuse * hypotenuse ||
+      base == 0 ||
+      height == 0 ||
+      hypotenuse == 0 ||
+      side1 + side2 + side3 - hypotenuse - height != base) {
       alert("That's not a valid right triangle.")
     }
     if (isNaN(side1) || isNaN(side2) || isNaN(side3)) {
@@ -223,8 +245,8 @@ const drawFace = function() {
     }
   } while (radius > 256 || isNaN(radius) || radius < 32)
 
-  var radius_eyes = 0.15 * radius
   var radius_mouth = 0.7 * radius
+  var radius_eyes = 0.15 * radius
 
 
   ctx.beginPath();
